@@ -58,9 +58,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
     SetDXArchiveExtension("rom");
     //SetDXArchiveKeyString(P_Str);
 
-    // デフォルト文字サイズ
-    SetFontSize(48);
-
     // DXライブラリ初期化
     if (DxLib_Init() == -1) {
         return -1;
@@ -68,6 +65,9 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
     // 描画先を裏画面にする
     SetDrawScreen(DX_SCREEN_BACK);
+
+    // デフォルト文字サイズ
+    SetFontSize(48);
 
     // メインループ
     while (ScreenFlip() == 0 && ProcessMessage() == 0 && ClearDrawScreen() == 0) {

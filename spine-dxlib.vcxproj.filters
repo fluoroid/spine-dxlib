@@ -13,10 +13,206 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\spine">
+      <UniqueIdentifier>{3af15abd-f848-4dd8-824a-318f1d4754c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\dxlib-spine">
+      <UniqueIdentifier>{4893e178-2460-4526-b8d7-f7e57d7a1cf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\dxlib-spine">
+      <UniqueIdentifier>{69dcc4e6-1a5a-4ef2-9a25-2c00d0b53c77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\dxlib">
+      <UniqueIdentifier>{5faaaf44-7902-4bf6-a364-9670cca13cea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\dxlib">
+      <UniqueIdentifier>{5d438bcd-1270-48b1-9f85-b7d23b0a7827}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\utils">
+      <UniqueIdentifier>{7d636bf7-09ff-4fd1-8e90-abcbea143832}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\utils">
+      <UniqueIdentifier>{84bdf245-ce18-4b16-82ef-7426a7a6ca52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\IkConstraintData.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Json.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\MeshAttachment.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\PathAttachment.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\PathConstraint.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\PathConstraintData.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\PhysicsConstraint.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\PhysicsConstraintData.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\PointAttachment.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\RegionAttachment.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Sequence.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Skeleton.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\SkeletonBinary.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\SkeletonBounds.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\SkeletonClipping.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\SkeletonData.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\SkeletonJson.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Skin.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Slot.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\SlotData.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\TransformConstraint.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\TransformConstraintData.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Triangulator.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\VertexAttachment.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Animation.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\AnimationState.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\AnimationStateData.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Array.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Atlas.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\AtlasAttachmentLoader.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Attachment.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\AttachmentLoader.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Bone.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\BoneData.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\BoundingBoxAttachment.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\ClippingAttachment.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Color.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Debug.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\Event.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\EventData.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\extension.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\spine-c\src\spine\IkConstraint.c">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dxlib_spine_c.cpp">
+      <Filter>ソース ファイル\dxlib-spine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dxlib_init.cpp">
+      <Filter>ソース ファイル\dxlib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\spine_loader.cpp">
+      <Filter>ソース ファイル\dxlib-spine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fps.cpp">
+      <Filter>ソース ファイル\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\spine.cpp">
+      <Filter>ソース ファイル\dxlib-spine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\spine-c\src\spine\Json.h">
+      <Filter>ソース ファイル\spine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dxlib_spine_c.h">
+      <Filter>ヘッダー ファイル\dxlib-spine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dxlib_init.h">
+      <Filter>ヘッダー ファイル\dxlib</Filter>
+    </ClInclude>
+    <ClInclude Include="src\fps.h">
+      <Filter>ヘッダー ファイル\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\spine_loader_c.h">
+      <Filter>ヘッダー ファイル\dxlib-spine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\spine.h">
+      <Filter>ヘッダー ファイル\dxlib-spine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include=".gitattributes">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="Licenses.md">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="README.md">
+      <Filter>リソース ファイル</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -59,20 +59,23 @@ int LoadSpineBinary(std::string atlasPath, std::string skelPath, DxSpine* spine)
     return 0;
 }
 
-void DxSpine::setPosition(float x, float y) const {
-    float width = skeletonData->width > 0.f ? skeletonData->width : 0;
-    float height = skeletonData->height > 0.f ? skeletonData->height : 0;
-
-    spineDrawable->skeleton->x = x;
-    spineDrawable->skeleton->y = y + height / 2;
+void DxSpine::setPosition(float x, float y) {
+    //float width = skeletonData->width > 0.f ? skeletonData->width : 0;
+    float height = skeletonData->height > 0.f ? skeletonData->height * scale : 0;
+    pos.x = x;
+    pos.y = y;
+    spineDrawable->skeleton->x = pos.x / scale;
+    spineDrawable->skeleton->y = (pos.y + height / 2) / scale;
 };
 
 void DxSpine::getPosition(float* x, float* y) const {
-    float width = skeletonData->width > 0.f ? skeletonData->width : 0;
-    float height = skeletonData->height > 0.f ? skeletonData->height : 0;
+    *x = pos.x;
+    *y = pos.y;
+};
 
-    *x = spineDrawable->skeleton->x;
-    *y = spineDrawable->skeleton->y - height / 2;
+void DxSpine::setScale(float scale) {
+    this->scale = scale;
+    setPosition(pos.x, pos.y);
 };
 
 int DxSpine::setAnimation(int trackIndex, const char* animationName, bool loop) {
@@ -105,6 +108,6 @@ void DxSpine::update() const {
     spineDrawable->update(1 / static_cast<float>(FPS::appliedFPS));
 }
 
-void DxSpine::draw(float fDepth, float fScale) const {
-    spineDrawable->draw(fDepth, fScale);
+void DxSpine::draw(float fDepth) const {
+    spineDrawable->draw(fDepth, scale);
 }

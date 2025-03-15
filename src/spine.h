@@ -16,7 +16,13 @@ public:
     /// <summary>
     /// コンストラクタ
     /// </summary>
-    DxSpine() {};
+    DxSpine() {
+        atlas = nullptr;
+        skeletonData = nullptr;
+        spineDrawable = nullptr;
+        pos = { 0.0f };
+        scale = 1.0f;
+    };
 
     /// <summary>
     /// デストラクタ
@@ -24,11 +30,31 @@ public:
     ~DxSpine() {};
 
     /// <summary>
+    /// アトラスデータ
+    /// </summary>
+    std::shared_ptr<spAtlas> atlas;
+
+    /// <summary>
+    /// スケルトンデータ
+    /// </summary>
+    std::shared_ptr<spSkeletonData> skeletonData;
+
+    /// <summary>
+    /// アニメーション名の配列
+    /// </summary>
+    std::vector<std::string> animationNames;
+
+    /// <summary>
+    /// spine drawable
+    /// </summary>
+    std::shared_ptr<DxLibSpineDrawer> spineDrawable;
+
+    /// <summary>
     /// Spineの座標を変更する
     /// </summary>
     /// <param name="x">x座標</param>
     /// <param name="y">y座標</param>
-    void setPosition(float x, float y) const;
+    void setPosition(float x, float y);
 
     /// <summary>
     /// Spineの座標を取得する
@@ -36,6 +62,12 @@ public:
     /// <param name="x">x座標</param>
     /// <param name="y">y座標</param>
     void getPosition(float* x, float* y) const;
+
+    /// <summary>
+    /// 大きさを変更する
+    /// </summary>
+    /// <param name="scale">スケール</param>
+    void setScale(float scale);
 
     /// <summary>
     /// アニメーションをセットする
@@ -77,13 +109,22 @@ public:
     /// </summary>
     void update() const;
 
-    void draw(float fDepth = 1.0f, float fScale = 1.0f) const;
+    /// <summary>
+    /// 描画する
+    /// </summary>
+    /// <param name="fDepth">深度</param>
+    void draw(float fDepth = 1.0f) const;
 
-    //private:
-    std::shared_ptr<spAtlas> atlas;
-    std::shared_ptr<spSkeletonData> skeletonData;
-    std::shared_ptr<DxLibSpineDrawer> spineDrawable;
-    std::vector<std::string> animationNames;
+private:
+    /// <summary>
+    /// 座標
+    /// </summary>
+    VECTOR pos;
+
+    /// <summary>
+    /// スケール
+    /// </summary>
+    float scale;
 };
 
 /// <summary>

@@ -32,6 +32,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
     LoadSpineBinary("data/spineboy.atlas", "data/spineboy-pro.skel", &spine);
     spine.setPosition(1920.f / 2.f, 1080.f / 2.f);
     spine.setAnimation(0, "idle");
+    spine.setScale(1.0);
 
     // キーボード
     int keyboardState[256]{ 0 };

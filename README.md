@@ -6,7 +6,7 @@
 
 ## Overview (これはなに？)
 
-[DX ライブラリへの Spine 組み込み #spine-c - Qiita](https://qiita.com/Ingaan/items/806e9dd6ad04f941a7df#%E6%8F%8F%E7%94%BB%E9%96%A2%E6%95%B0-%E7%8B%AC%E8%87%AA%E9%83%A8)を参考に DX ライブラリへ Spine を埋め込んだサンプルだよ。
+[DX ライブラリへの Spine 組み込み #spine-c - Qiita](https://qiita.com/Ingaan/items/806e9dd6ad04f941a7df)を参考に DX ライブラリへ Spine を埋め込んだサンプルだよ。
 
 ## Requirement
 

@@ -196,12 +196,6 @@
     <ClInclude Include="src\spine.h" />
     <ClInclude Include="src\spine_loader_c.h" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include=".gitattributes" />
-    <None Include=".gitignore" />
-    <None Include="Licenses.md" />
-    <None Include="README.md" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

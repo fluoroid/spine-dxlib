@@ -201,18 +201,4 @@
       <Filter>ヘッダー ファイル\dxlib-spine</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include=".gitignore">
-      <Filter>リソース ファイル</Filter>
-    </None>
-    <None Include=".gitattributes">
-      <Filter>リソース ファイル</Filter>
-    </None>
-    <None Include="Licenses.md">
-      <Filter>リソース ファイル</Filter>
-    </None>
-    <None Include="README.md">
-      <Filter>リソース ファイル</Filter>
-    </None>
-  </ItemGroup>
 </Project>

@@ -21,7 +21,9 @@ public:
         skeletonData = nullptr;
         spineDrawable = nullptr;
         pos = { 0.0f };
-        scale = 1.0f;
+        scale = { 1.0f };
+        active = true;
+        visible = true;
     };
 
     /// <summary>
@@ -50,6 +52,16 @@ public:
     std::shared_ptr<DxLibSpineDrawer> spineDrawable;
 
     /// <summary>
+    /// 更新・描画がアクティブか
+    /// </summary>
+    bool active;
+
+    /// <summary>
+    /// 可視状態か
+    /// </summary>
+    bool visible;
+
+    /// <summary>
     /// Spineの座標を変更する
     /// </summary>
     /// <param name="x">x座標</param>
@@ -66,43 +78,72 @@ public:
     /// <summary>
     /// 大きさを変更する
     /// </summary>
+    /// <param name="scaleX">x スケール</param>
+    /// <param name="scaleY">y スケール</param>
+    void setScale(float scaleX, float scaleY);
+
+    /// <summary>
+    /// 大きさを変更する
+    /// </summary>
     /// <param name="scale">スケール</param>
     void setScale(float scale);
 
     /// <summary>
     /// アニメーションをセットする
     /// </summary>
-    /// <param name="trackIndex">track index</param>
+    /// <param name="trackIndex"></param>
     /// <param name="animationName">アニメーション名</param>
+    /// <param name="mixDuration"></param>
     /// <param name="loop">ループするか</param>
-    /// <returns>0: 完了、-1: アニメーションが見つからない</returns>
-    int setAnimation(int trackIndex, const char* animationName, bool loop = true);
+    /// <returns>Track Entry</returns>
+    spTrackEntry* setAnimation(int trackIndex, const char* animationName, float mixDuration = 0.f, bool loop = true);
 
     /// <summary>
     /// アニメーションを追加する
     /// </summary>
-    /// <param name="trackIndex">track index</param>
+    /// <param name="trackIndex"></param>
     /// <param name="animationName">アニメーション名</param>
+    /// <param name="mixDuration"></param>
     /// <param name="loop">ループするか</param>
     /// <param name="delay">遅延</param>
-    /// <returns>0: 完了、-1: アニメーションが見つからない</returns>
-    int addAnimation(int trackIndex, const char* animationName, bool loop = true, float delay = 0.f);
+    /// <returns>Track Entry</returns>
+    spTrackEntry* addAnimation(int trackIndex, const char* animationName, float mixDuration = 0.f, bool loop = true, float delay = 0.f);
 
     /// <summary>
     /// 空のアニメーションをセットする
     /// </summary>
-    /// <param name="trackIndex">track index</param>
-    /// <param name="animationName"></param>
-    /// <param name="mixDuration">mix Duration</param>
-    void setEmptyAnimation(int trackIndex, float mixDuration = 0.f) const;
+    /// <param name="trackIndex">x</param>
+    /// <param name="mixDuration"></param>
+    /// <returns>Track Entry</returns>
+    spTrackEntry* setEmptyAnimation(int trackIndex, float mixDuration = 0.f) const;
 
     /// <summary>
     /// 空のアニメーションを追加する
     /// </summary>
-    /// <param name="trackIndex">track index</param>
-    /// <param name="mixDuration">mix Duration</param>
+    /// <param name="trackIndex"></param>
+    /// <param name="mixDuration"></param>
     /// <param name="delay">遅延</param>
-    void addEmptyAnimation(int trackIndex, float mixDuration = 0.f, float delay = 0.f) const;
+    /// <returns>Track Entry</returns>
+    spTrackEntry* addEmptyAnimation(int trackIndex, float mixDuration = 0.f, float delay = 0.f) const;
+
+    /// <summary>
+    /// 現在のアニメーションの状態を取得する
+    /// </summary>
+    /// <param name="trackIndex"></param>
+    /// <returns>Track Entry</returns>
+    spTrackEntry* getCurrentAnimation(int trackIndex) const;
+
+    /// <summary>
+    /// スキンをセットする
+    /// </summary>
+    /// <param name="skinName">スキン名</param>
+    void setSkin(const char* skinName) const;
+
+    /// <summary>
+    /// スキンをセットする
+    /// </summary>
+    /// <param name="skinNames">スキン名の配列</param>
+    void setSkin(const std::vector<std::string> skinNames) const;
 
     /// <summary>
     /// 状態を更新する
@@ -124,7 +165,7 @@ private:
     /// <summary>
     /// スケール
     /// </summary>
-    float scale;
+    VECTOR scale;
 };
 
 /// <summary>

@@ -27,12 +27,22 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
     // fps
     FPS fps;
 
-    // Spine
-    DxSpine spine;
-    LoadSpineBinary("data/spineboy.atlas", "data/spineboy-pro.skel", &spine);
-    spine.setPosition(1920.f / 2.f, 1080.f / 2.f);
-    spine.setAnimation(0, "idle");
-    spine.setScale(1.0);
+    // トグル
+    bool flag = false;
+    bool skinFlag = false;
+
+    // Spine Boy
+    DxSpine spineBoy;
+    LoadSpineBinary("data/spineboy.atlas", "data/spineboy-pro.skel", &spineBoy);
+    spineBoy.setPosition(1920.f / 2.f - 500, 1080.f / 2.f + 450);
+    spineBoy.setAnimation(0, "idle");
+
+    // Mix and Match
+    DxSpine mixAndMatch;
+    LoadSpineBinary("data/mix-and-match-pro.atlas", "data/mix-and-match-pro.skel", &mixAndMatch);
+    mixAndMatch.setSkin("full-skins/girl");
+    mixAndMatch.setPosition(1920.f / 2.f + 500, 1080.f / 2.f + 450);
+    mixAndMatch.setAnimation(0, "idle");
 
     // キーボード
     int keyboardState[256]{ 0 };
@@ -53,11 +63,16 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
         // 文字
         DrawFormatString(0, 0, GetColor(255, 255, 255), "これはDXライブラリにSpineを組み込んだサンプルです。");
-        DrawFormatString(0, 48, GetColor(255, 255, 255), "クリック: アニメーション変更、ドラッグ: 移動");
+        DrawFormatString(0, 48, GetColor(255, 255, 255), "Z: アニメーション変更、S: スキン変更、ドラッグ: 移動");
         DrawFormatString(0, 96, GetColor(255, 255, 255), "%.1f fps", fps.get());
 
         // キーボード
         GetHitKeyStateAllEx(keyboardState);
+
+        // ESCキーで終了
+        if (keyboardState[KEY_INPUT_ESCAPE] == 1) {
+            break;
+        }
 
         // 現在のフレームのマウスの状態
         int iCurrentMouseState = GetMouseInput();
@@ -65,25 +80,38 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
         // ドラッグ
         if ((iCurrentMouseState & MOUSE_INPUT_LEFT) && (iForeMouseState & MOUSE_INPUT_LEFT)) {
             GetMousePoint(&iMouseStartPos.x, &iMouseStartPos.y);
-            spine.setPosition(static_cast<float>(iMouseStartPos.x), static_cast<float>(iMouseStartPos.y));
+            spineBoy.setPosition(static_cast<float>(iMouseStartPos.x), static_cast<float>(iMouseStartPos.y));
         }
-        // クリック
-        else if ((iCurrentMouseState & MOUSE_INPUT_LEFT) && !(iForeMouseState & MOUSE_INPUT_LEFT)) {
-            // クリック終了時のマウス座標
-            INT4 iMouseEndPos{ 0 };
-            GetMousePoint(&iMouseEndPos.x, &iMouseEndPos.y);
-            // 変化したマウス座標を取得
-            int iX = iMouseEndPos.x - iMouseStartPos.x;
-            int iY = iMouseEndPos.y - iMouseStartPos.y;
-            // その場でクリックした場合、次のアニメーションに変更
-            if (iX == 0 && iY == 0) {
-                spine.setAnimation(0, "run");
+        // キーボード
+        if (keyboardState[KEY_INPUT_Z] == 1) {
+            if (!flag) {
+                spineBoy.setAnimation(0, "run", 0.2f);
+                mixAndMatch.setAnimation(0, "dance", 0.2f);
+                flag = true;
+            }
+            else {
+                spineBoy.setAnimation(0, "walk", 0.2f);
+                mixAndMatch.setAnimation(0, "idle", 0.2f);
+                flag = false;
+            }
+        }
+        else if (keyboardState[KEY_INPUT_S] == 1) {
+            if (!skinFlag) {
+                std::vector<std::string> skins = { "accessories/cape-red", "clothes/dress-green", "eyelids/girly", "eyes/yellow", "hair/brown", "legs/boots-red", "nose/short", "skin-base" };
+                mixAndMatch.setSkin(skins);
+                skinFlag = true;
+            }
+            else {
+                mixAndMatch.setSkin("full-skins/girl");
+                skinFlag = false;
             }
         }
 
         // アップデートと描画
-        spine.update();
-        spine.draw();
+        spineBoy.update();
+        spineBoy.draw();
+        mixAndMatch.update();
+        mixAndMatch.draw();
 
         // マウスの入力履歴を更新
         iForeMouseState = iCurrentMouseState;

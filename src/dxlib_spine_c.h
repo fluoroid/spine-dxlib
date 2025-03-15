@@ -79,7 +79,7 @@ public:
     /// </summary>
     /// <param name="fDepth"></param>
     /// <param name="fScale"></param>
-    void draw(float fDepth, float fScale);
+    void draw(float fDepth, float fScaleX, float fScaleY);
 
     /// <summary>
     /// æZÏ‚İƒAƒ‹ƒtƒ@‚ğ”½“]‚³‚¹‚é

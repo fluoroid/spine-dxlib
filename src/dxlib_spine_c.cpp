@@ -112,7 +112,7 @@ void DxLibSpineDrawer::switchBlendModeAdoption() {
     isForceBlendModeNormal = !isForceBlendModeNormal;
 }
 
-void DxLibSpineDrawer::draw(float fDepth, float fScale) {
+void DxLibSpineDrawer::draw(float fDepth, float fScaleX, float fScaleY) {
     if (m_worldVertices == nullptr || m_clipper == nullptr || skeleton == nullptr || animationState == nullptr) return;
 
     if (skeleton->color.a == 0) return;
@@ -206,8 +206,8 @@ void DxLibSpineDrawer::draw(float fDepth, float fScale) {
         spDxLibVertexArray_clear(m_dxLibVertices);
         for (int ii = 0; ii < pVertices->size; ii += 2) {
             VERTEX2D dxLibVertex{};
-            dxLibVertex.pos.x = pVertices->items[ii] * fScale;
-            dxLibVertex.pos.y = pVertices->items[ii + 1LL] * fScale;
+            dxLibVertex.pos.x = pVertices->items[ii] * fScaleX;
+            dxLibVertex.pos.y = pVertices->items[ii + 1LL] * fScaleY;
             dxLibVertex.pos.z = fDepth;
             dxLibVertex.rhw = 1.f;
             dxLibVertex.dif.r = (BYTE)(tint.r * 255.f);

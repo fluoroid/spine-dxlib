@@ -28,6 +28,7 @@ int LoadSpineJson(std::string atlasPath, std::string jsonPath, DxSpine* spine) {
     if (spine->animationNames.empty()) return -1;
 
     spine->setPosition(0, 0);
+    spine->setScale(1.0);
 
     return 0;
 }
@@ -55,17 +56,16 @@ int LoadSpineBinary(std::string atlasPath, std::string skelPath, DxSpine* spine)
     if (spine->animationNames.empty()) return -1;
 
     spine->setPosition(0, 0);
+    spine->setScale(1.0);
 
     return 0;
 }
 
 void DxSpine::setPosition(float x, float y) {
-    //float width = skeletonData->width > 0.f ? skeletonData->width : 0;
-    float height = skeletonData->height > 0.f ? skeletonData->height * scale : 0;
     pos.x = x;
     pos.y = y;
-    spineDrawable->skeleton->x = pos.x / scale;
-    spineDrawable->skeleton->y = (pos.y + height / 2) / scale;
+    spineDrawable->skeleton->x = pos.x / scale.x;
+    spineDrawable->skeleton->y = pos.y / scale.y;
 };
 
 void DxSpine::getPosition(float* x, float* y) const {
@@ -73,41 +73,77 @@ void DxSpine::getPosition(float* x, float* y) const {
     *y = pos.y;
 };
 
-void DxSpine::setScale(float scale) {
-    this->scale = scale;
+void DxSpine::setScale(float scaleX, float scaleY) {
+    scale.x = scaleX;
+    scale.y = scaleY;
     setPosition(pos.x, pos.y);
 };
 
-int DxSpine::setAnimation(int trackIndex, const char* animationName, bool loop) {
+void DxSpine::setScale(float scale) {
+    this->scale.x = scale;
+    this->scale.y = scale;
+    setPosition(pos.x, pos.y);
+};
+
+spTrackEntry* DxSpine::setAnimation(int trackIndex, const char* animationName, float mixDuration, bool loop) {
     auto iter = std::find(animationNames.begin(), animationNames.end(), animationName);
     if (iter == animationNames.cend()) {
-        return -1;
+        return nullptr;
     }
-    spAnimationState_setAnimationByName(spineDrawable->animationState, trackIndex, animationName, loop ? 1 : 0);
-    return 0;
+    spTrackEntry* entry = spAnimationState_setAnimationByName(spineDrawable->animationState, trackIndex, animationName, loop ? 1 : 0);
+    entry->mixDuration = mixDuration;
+    return entry;
 };
 
-int DxSpine::addAnimation(int trackIndex, const char* animationName, bool loop, float delay) {
+spTrackEntry* DxSpine::addAnimation(int trackIndex, const char* animationName, float mixDuration, bool loop, float delay) {
     auto iter = std::find(animationNames.begin(), animationNames.end(), animationName);
     if (iter == animationNames.cend()) {
-        return -1;
+        return nullptr;
     }
-    spAnimationState_addAnimationByName(spineDrawable->animationState, trackIndex, animationName, loop ? 1 : 0, delay);
-    return 0;
+    spTrackEntry* entry = spAnimationState_addAnimationByName(spineDrawable->animationState, trackIndex, animationName, loop ? 1 : 0, delay);
+    entry->mixDuration = mixDuration;
+    return entry;
 };
 
-void DxSpine::setEmptyAnimation(int trackIndex, float mixDuration) const {
-    spAnimationState_setEmptyAnimation(spineDrawable->animationState, trackIndex, mixDuration);
+spTrackEntry* DxSpine::setEmptyAnimation(int trackIndex, float mixDuration) const {
+    return spAnimationState_setEmptyAnimation(spineDrawable->animationState, trackIndex, mixDuration);
 };
 
-void DxSpine::addEmptyAnimation(int trackIndex, float mixDuration, float delay) const {
-    spAnimationState_addEmptyAnimation(spineDrawable->animationState, trackIndex, mixDuration, delay);
+spTrackEntry* DxSpine::addEmptyAnimation(int trackIndex, float mixDuration, float delay) const {
+    return spAnimationState_addEmptyAnimation(spineDrawable->animationState, trackIndex, mixDuration, delay);
 };
+
+spTrackEntry* DxSpine::getCurrentAnimation(int trackIndex) const {
+    return spAnimationState_getCurrent(spineDrawable->animationState, trackIndex);
+}
+
+void DxSpine::setSkin(const char* skinName) const {
+    spSkeleton_setSkinByName(spineDrawable->skeleton, skinName);
+    spSkeleton_setSlotsToSetupPose(spineDrawable->skeleton);
+}
+
+void DxSpine::setSkin(const std::vector<std::string> skinNames) const {
+    spSkin* combinedSkin = spSkin_create("CombinedSkin");
+    if (skinNames.size() == 0) return;
+    spSkeletonData_findSkin(skeletonData.get(), skinNames[0].c_str());
+    for (int i = 0; i < skinNames.size(); i++) {
+        std::string skinName = skinNames[i];
+        auto skin = spSkeletonData_findSkin(skeletonData.get(), skinNames[i].c_str());
+        if (!skin) continue;
+        spSkin_addSkin(combinedSkin, skin);
+    }
+    spSkeleton_setSkin(spineDrawable->skeleton, combinedSkin);
+    spSkeleton_setSlotsToSetupPose(spineDrawable->skeleton);
+}
 
 void DxSpine::update() const {
-    spineDrawable->update(1 / static_cast<float>(FPS::appliedFPS));
+    if (active) {
+        spineDrawable->update(1 / static_cast<float>(FPS::appliedFPS));
+    }
 }
 
 void DxSpine::draw(float fDepth) const {
-    spineDrawable->draw(fDepth, scale);
+    if (active && visible) {
+        spineDrawable->draw(fDepth, scale.x, scale.y);
+    }
 }

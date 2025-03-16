@@ -1,5 +1,6 @@
 /*
 Copyright (c) 2025 Fluoroid (Syar Star Observatory)
+This software is released under the MIT license.
 */
 
 #include <DxLib.h>
@@ -28,7 +29,7 @@ DxLibInit::DxLibInit(void* pWindowHandle) {
     SetDoubleStartValidFlag(FALSE);
 
     // ウインドウクラス名
-    SetMainWindowClassName("DXLib-Spine");
+    SetMainWindowClassName("dxlib-spine");
 
     // ウィンドウサイズを自由に変更できるようにする
     SetWindowSizeChangeEnableFlag(TRUE);

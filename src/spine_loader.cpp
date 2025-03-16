@@ -1,5 +1,6 @@
 /*
 Copyright (c) 2025 Fluoroid (Syar Star Observatory)
+This software is released under the MIT license.
 */
 
 #include "spine_loader_c.h"

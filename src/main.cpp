@@ -33,13 +33,13 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 
     // Spine Boy
     DxSpine spineBoy;
-    LoadSpineBinary("data/spineboy.atlas", "data/spineboy-pro.skel", &spineBoy);
+    LoadSpineBinary("data/spineboy/spineboy.atlas", "data/spineboy/spineboy-pro.skel", &spineBoy);
     spineBoy.setPosition(1920.f / 2.f - 500, 1080.f / 2.f + 450);
     spineBoy.setAnimation(0, "idle");
 
     // Mix and Match
     DxSpine mixAndMatch;
-    LoadSpineBinary("data/mix-and-match-pro.atlas", "data/mix-and-match-pro.skel", &mixAndMatch);
+    LoadSpineBinary("data/mix-and-match/mix-and-match.atlas", "data/mix-and-match/mix-and-match-pro.skel", &mixAndMatch);
     mixAndMatch.setSkin("full-skins/girl");
     mixAndMatch.setPosition(1920.f / 2.f + 500, 1080.f / 2.f + 450);
     mixAndMatch.setAnimation(0, "idle");

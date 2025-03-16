@@ -76,13 +76,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\アプリケーション\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\lib\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\アプリケーション\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\lib\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -93,7 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\アプリケーション\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\lib\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -101,7 +101,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\アプリケーション\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\lib\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -110,13 +110,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\アプリケーション\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\アプリケーション\spine-c\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\lib\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\lib\spine-c\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\アプリケーション\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\lib\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -127,60 +129,62 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\アプリケーション\DxLib_VC\プロジェクトに追加すべきファイル_VC用;D:\アプリケーション\spine-c\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\lib\DxLib_VC\プロジェクトに追加すべきファイル_VC用;C:\lib\spine-c\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\アプリケーション\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\lib\DxLib_VC\プロジェクトに追加すべきファイル_VC用;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\spine-c\src\spine\Animation.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\AnimationState.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\AnimationStateData.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Array.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Atlas.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\AtlasAttachmentLoader.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Attachment.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\AttachmentLoader.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Bone.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\BoneData.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\BoundingBoxAttachment.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\ClippingAttachment.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Color.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Debug.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Event.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\EventData.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\extension.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\IkConstraint.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\IkConstraintData.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Json.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\MeshAttachment.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\PathAttachment.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\PathConstraint.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\PathConstraintData.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\PhysicsConstraint.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\PhysicsConstraintData.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\PointAttachment.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\RegionAttachment.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Sequence.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Skeleton.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\SkeletonBinary.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\SkeletonBounds.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\SkeletonClipping.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\SkeletonData.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\SkeletonJson.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Skin.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Slot.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\SlotData.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\TransformConstraint.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\TransformConstraintData.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\Triangulator.c" />
-    <ClCompile Include="..\..\spine-c\src\spine\VertexAttachment.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Animation.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\AnimationState.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\AnimationStateData.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Array.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Atlas.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\AtlasAttachmentLoader.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Attachment.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\AttachmentLoader.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Bone.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\BoneData.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\BoundingBoxAttachment.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\ClippingAttachment.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Color.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Debug.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Event.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\EventData.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\extension.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\IkConstraint.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\IkConstraintData.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Json.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\MeshAttachment.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\PathAttachment.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\PathConstraint.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\PathConstraintData.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\PhysicsConstraint.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\PhysicsConstraintData.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\PointAttachment.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\RegionAttachment.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Sequence.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Skeleton.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\SkeletonBinary.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\SkeletonBounds.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\SkeletonClipping.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\SkeletonData.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\SkeletonJson.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Skin.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Slot.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\SlotData.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\TransformConstraint.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\TransformConstraintData.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\Triangulator.c" />
+    <ClCompile Include="C:\lib\spine-c\src\spine\VertexAttachment.c" />
     <ClCompile Include="src\dxlib_init.cpp" />
     <ClCompile Include="src\dxlib_spine_c.cpp" />
     <ClCompile Include="src\fps.cpp" />
@@ -189,12 +193,38 @@
     <ClCompile Include="src\spine_loader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\spine-c\src\spine\Json.h" />
+    <ClInclude Include="C:\lib\spine-c\src\spine\Json.h" />
     <ClInclude Include="src\dxlib_init.h" />
     <ClInclude Include="src\dxlib_spine_c.h" />
     <ClInclude Include="src\fps.h" />
     <ClInclude Include="src\spine.h" />
     <ClInclude Include="src\spine_loader_c.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+    </None>
+    <None Include=".gitignore">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+    </None>
+    <None Include="Licenses.md">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+    </None>
+    <None Include="README.md">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

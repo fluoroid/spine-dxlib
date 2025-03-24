@@ -6,13 +6,13 @@ This software is released under the MIT license.
 #include "spine.h"
 #include "fps.h"
 
-int LoadSpineJson(std::string atlasPath, std::string jsonPath, DxSpine* spine) {
+int LoadSpineJson(const char* atlasPath, const char* jsonPath, DxSpine* spine) {
     // アトラス
-    spine->atlas = spine_loader_c::CreateAtlasFromFile(atlasPath.c_str(), nullptr);
+    spine->atlas = spine_loader_c::CreateAtlasFromFile(atlasPath, nullptr);
     if (spine->atlas.get() == nullptr) return -1;
 
     // スケルトンデータ
-    spine->skeletonData = spine_loader_c::ReadJsonSkeletonFromFile(jsonPath.c_str(), spine->atlas.get());
+    spine->skeletonData = spine_loader_c::ReadJsonSkeletonFromFile(jsonPath, spine->atlas.get());
     if (spine->skeletonData.get() == nullptr) return -1;
 
     // drawable
@@ -34,13 +34,13 @@ int LoadSpineJson(std::string atlasPath, std::string jsonPath, DxSpine* spine) {
     return 0;
 }
 
-int LoadSpineBinary(std::string atlasPath, std::string skelPath, DxSpine* spine) {
+int LoadSpineBinary(const char* atlasPath, const char* skelPath, DxSpine* spine) {
     // アトラス
-    spine->atlas = spine_loader_c::CreateAtlasFromFile(atlasPath.c_str(), nullptr);
+    spine->atlas = spine_loader_c::CreateAtlasFromFile(atlasPath, nullptr);
     if (spine->atlas.get() == nullptr) return -1;
 
     // スケルトンデータ
-    spine->skeletonData = spine_loader_c::ReadBinarySkeletonFromFile(skelPath.c_str(), spine->atlas.get());
+    spine->skeletonData = spine_loader_c::ReadBinarySkeletonFromFile(skelPath, spine->atlas.get());
     if (spine->skeletonData.get() == nullptr) return -1;
 
     // drawable

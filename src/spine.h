@@ -176,7 +176,7 @@ private:
 /// <param name="strSkelPath">JSONのパス</param>
 /// <param name="spine">格納するDxSpine変数</param>
 /// <returns>0: 正常、-1: エラー</returns>
-int LoadSpineJson(std::string atlasPath, std::string jsonPath, DxSpine* spine);
+int LoadSpineJson(const char* atlasPath, const char* jsonPath, DxSpine* spine);
 
 /// <summary>
 /// Spineをロードする(バイナリ)
@@ -185,4 +185,4 @@ int LoadSpineJson(std::string atlasPath, std::string jsonPath, DxSpine* spine);
 /// <param name="strSkelPath">バイナリのパス</param>
 /// <param name="spine">格納するDxSpine変数</param>
 /// <returns>0: 正常、-1: エラー</returns>
-int LoadSpineBinary(std::string atlasPath, std::string skelPath, DxSpine* spine);
+int LoadSpineBinary(const char* atlasPath, const char* skelPath, DxSpine* spine);

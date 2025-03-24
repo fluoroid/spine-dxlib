@@ -29,7 +29,7 @@ TypeScript 版 Spine ランタイムのような記述を意識しました。
 ### クローン
 
 ```bash
-git clone https://github.com/fluoroid/dxlib-spine.git
+git clone https://github.com/fluoroid/spine-dxlib.git
 ```
 
 ### DX ライブラリのダウンロード

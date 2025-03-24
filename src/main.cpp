@@ -35,15 +35,17 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
     // Spine Boy
     DxSpine spineBoy;
     LoadSpineBinary("data/spineboy/spineboy.atlas", "data/spineboy/spineboy-pro.skel", &spineBoy);
-    spineBoy.setPosition(1920.f / 2.f - 500, 1080.f / 2.f + 450);
-    spineBoy.setAnimation(0, "idle");
+    spineBoy
+        .setPosition(1920.f / 2.f - 500, 1080.f / 2.f + 450)
+        .setAnimation(0, "idle");
 
     // Mix and Match
     DxSpine mixAndMatch;
     LoadSpineBinary("data/mix-and-match/mix-and-match.atlas", "data/mix-and-match/mix-and-match-pro.skel", &mixAndMatch);
-    mixAndMatch.setSkin("full-skins/girl");
-    mixAndMatch.setPosition(1920.f / 2.f + 500, 1080.f / 2.f + 450);
-    mixAndMatch.setAnimation(0, "idle");
+    mixAndMatch
+        .setSkin("full-skins/girl")
+        .setPosition(1920.f / 2.f + 500, 1080.f / 2.f + 450)
+        .setAnimation(0, "idle");
 
     // キーボード
     int keyboardState[256]{ 0 };
@@ -109,10 +111,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
         }
 
         // アップデートと描画
-        spineBoy.update();
-        spineBoy.draw();
-        mixAndMatch.update();
-        mixAndMatch.draw();
+        spineBoy.update().draw();
+        mixAndMatch.update().draw();
 
         // マウスの入力履歴を更新
         iForeMouseState = iCurrentMouseState;

@@ -67,7 +67,7 @@ public:
     /// </summary>
     /// <param name="x">x座標</param>
     /// <param name="y">y座標</param>
-    void setPosition(float x, float y);
+    DxSpine& setPosition(float x, float y);
 
     /// <summary>
     /// Spineの座標を取得する
@@ -81,13 +81,13 @@ public:
     /// </summary>
     /// <param name="scaleX">x スケール</param>
     /// <param name="scaleY">y スケール</param>
-    void setScale(float scaleX, float scaleY);
+    DxSpine& setScale(float scaleX, float scaleY);
 
     /// <summary>
     /// 大きさを変更する
     /// </summary>
     /// <param name="scale">スケール</param>
-    void setScale(float scale);
+    DxSpine& setScale(float scale);
 
     /// <summary>
     /// アニメーションをセットする
@@ -138,24 +138,24 @@ public:
     /// スキンをセットする
     /// </summary>
     /// <param name="skinName">スキン名</param>
-    void setSkin(const char* skinName) const;
+    DxSpine& setSkin(const char* skinName);
 
     /// <summary>
     /// スキンをセットする
     /// </summary>
     /// <param name="skinNames">スキン名の配列</param>
-    void setSkin(const std::vector<std::string> skinNames) const;
+    DxSpine& setSkin(const std::vector<std::string> skinNames);
 
     /// <summary>
     /// 状態を更新する
     /// </summary>
-    void update() const;
+    DxSpine& update();
 
     /// <summary>
     /// 描画する
     /// </summary>
     /// <param name="fDepth">深度</param>
-    void draw(float fDepth = 1.0f) const;
+    DxSpine& draw(float fDepth = 1.0f);
 
 private:
     /// <summary>

@@ -62,11 +62,12 @@ int LoadSpineBinary(std::string atlasPath, std::string skelPath, DxSpine* spine)
     return 0;
 }
 
-void DxSpine::setPosition(float x, float y) {
+DxSpine& DxSpine::setPosition(float x, float y) {
     pos.x = x;
     pos.y = y;
     spineDrawable->skeleton->x = pos.x / scale.x;
     spineDrawable->skeleton->y = pos.y / scale.y;
+    return *this;
 };
 
 void DxSpine::getPosition(float* x, float* y) const {
@@ -74,16 +75,18 @@ void DxSpine::getPosition(float* x, float* y) const {
     *y = pos.y;
 };
 
-void DxSpine::setScale(float scaleX, float scaleY) {
+DxSpine& DxSpine::setScale(float scaleX, float scaleY) {
     scale.x = scaleX;
     scale.y = scaleY;
     setPosition(pos.x, pos.y);
+    return *this;
 };
 
-void DxSpine::setScale(float scale) {
+DxSpine& DxSpine::setScale(float scale) {
     this->scale.x = scale;
     this->scale.y = scale;
     setPosition(pos.x, pos.y);
+    return *this;
 };
 
 spTrackEntry* DxSpine::setAnimation(int trackIndex, const char* animationName, float mixDuration, bool loop) {
@@ -118,14 +121,15 @@ spTrackEntry* DxSpine::getCurrentAnimation(int trackIndex) const {
     return spAnimationState_getCurrent(spineDrawable->animationState, trackIndex);
 }
 
-void DxSpine::setSkin(const char* skinName) const {
+DxSpine& DxSpine::setSkin(const char* skinName) {
     spSkeleton_setSkinByName(spineDrawable->skeleton, skinName);
     spSkeleton_setSlotsToSetupPose(spineDrawable->skeleton);
+    return *this;
 }
 
-void DxSpine::setSkin(const std::vector<std::string> skinNames) const {
+DxSpine& DxSpine::setSkin(const std::vector<std::string> skinNames) {
     spSkin* combinedSkin = spSkin_create("CombinedSkin");
-    if (skinNames.size() == 0) return;
+    if (skinNames.size() == 0) return *this;
     spSkeletonData_findSkin(skeletonData.get(), skinNames[0].c_str());
     for (int i = 0; i < skinNames.size(); i++) {
         std::string skinName = skinNames[i];
@@ -135,16 +139,19 @@ void DxSpine::setSkin(const std::vector<std::string> skinNames) const {
     }
     spSkeleton_setSkin(spineDrawable->skeleton, combinedSkin);
     spSkeleton_setSlotsToSetupPose(spineDrawable->skeleton);
+    return *this;
 }
 
-void DxSpine::update() const {
+DxSpine& DxSpine::update() {
     if (active) {
         spineDrawable->update(1 / static_cast<float>(FPS::appliedFPS));
     }
+    return *this;
 }
 
-void DxSpine::draw(float fDepth) const {
+DxSpine& DxSpine::draw(float fDepth) {
     if (active && visible) {
         spineDrawable->draw(fDepth, scale.x, scale.y);
     }
+    return *this;
 }
